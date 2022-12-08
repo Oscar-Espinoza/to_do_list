@@ -18,7 +18,7 @@ module.exports = {
       {
         patterns: [
           {
-            from: './src/images', 
+            from: './src/images',
             to: 'images',
           },
         ],
