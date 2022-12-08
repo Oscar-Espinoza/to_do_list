@@ -22,7 +22,7 @@ const addTask = (task) => {
   newTask.innerHTML = `
   <input type='checkbox' name='isTaskCompleted' id='check-${task.id}' value='${task.completed}'>
   <p class='description'>${task.descrition}</p>
-  <img src='../src/images/dots.png' alt='three dots icon' class='three-dots'>
+  <img src='./images/dots.png' alt='three dots icon' class='three-dots'>
   `;
   taskList.insertBefore(newTask, taskList.lastChild);
 };

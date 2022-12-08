@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
@@ -13,6 +14,15 @@ module.exports = {
       title: 'To do list',
       template: './src/index.html',
     }),
+    new CopyWebpackPlugin(
+      {
+        'patterns': [
+          {
+            from:'./src/images', to:'images'
+          },
+        ]
+      },
+    ),
   ],
   module: {
     rules: [
@@ -25,5 +35,15 @@ module.exports = {
         ],
       },
     ],
+  },
+  devServer: {
+    static: {
+      directory: path.resolve(__dirname, 'dist'),
+    },
+    port: 3000,
+    open: true,
+    hot: true,
+    compress: true,
+    historyApiFallback: true,
   },
 };
