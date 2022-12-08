@@ -1,0 +1,76 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.to-do-list {
+  display: flex;
+  min-width: 100vh;
+  min-height: 100vh;
+  background: #dfdfdf;
+  justify-content: center;
+  align-items: center;
+}
+
+#tasks-list {
+  width: 300px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  box-shadow: 5px 5px 24px #6e6e6e;
+  li {
+    padding: 8px;
+    border-bottom: #cacaca 1px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      width: 18px;
+    }
+  }
+
+  .list-title {
+    p {
+      flex-grow: 1;
+    }
+    img {
+      cursor: pointer;
+    }
+  }
+}
+
+.add-task {
+  img {
+    cursor: pointer;
+  }
+}
+
+#new-task {
+  flex-grow: 1;
+  border: none;
+  &:focus {
+    outline: none;
+  }
+}
+
+.task {
+  align-items: center;
+
+  .description {
+    flex-grow: 1;
+    padding-left: 10px;
+  }
+  img {
+    cursor: grab;
+  }
+}
+
+#clear {
+  background: #dfdfdf;
+  text-align: center;
+  color: #b4b4b4;
+  p {
+    cursor: pointer;
+  }
+}
