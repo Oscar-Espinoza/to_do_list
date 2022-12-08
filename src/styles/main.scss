@@ -19,12 +19,14 @@
   flex-direction: column;
   list-style: none;
   box-shadow: 5px 5px 24px #6e6e6e;
+
   li {
     padding: 8px;
     border-bottom: #cacaca 1px solid;
     display: flex;
     justify-content: center;
     align-items: center;
+
     img {
       width: 18px;
     }
@@ -34,21 +36,21 @@
     p {
       flex-grow: 1;
     }
+
     img {
       cursor: pointer;
     }
   }
 }
 
-.add-task {
-  img {
-    cursor: pointer;
-  }
+.enter-icon {
+  cursor: pointer;
 }
 
 #new-task {
   flex-grow: 1;
   border: none;
+
   &:focus {
     outline: none;
   }
@@ -61,7 +63,8 @@
     flex-grow: 1;
     padding-left: 10px;
   }
-  img {
+
+  .three-dots {
     cursor: grab;
   }
 }
@@ -70,7 +73,8 @@
   background: #dfdfdf;
   text-align: center;
   color: #b4b4b4;
-  p {
+  
+  .clear-text {
     cursor: pointer;
   }
 }
