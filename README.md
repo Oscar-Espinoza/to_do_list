@@ -68,7 +68,7 @@
 
 <!-- GETTING STARTED -->
 
-## 💻 Getting Started <a name="getting-started"></a>
+## 💻 Getting Started <a name="getting-started"></a> <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 To get a local copy up and running, follow these steps.
 
@@ -77,6 +77,8 @@ To get a local copy up and running, follow these steps.
 In order to run this project you need:
 
 - npm installed
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Setup
 
@@ -87,15 +89,17 @@ Clone this repository to your desired folder:
   npm install
   npm run build
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ### Usage
 
 To run the project, execute the following command:
 
  npm run dev
 
-## 👥 Authors <a name="authors"></a>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-> Mention all of the collaborators of this project.
+## 👥 Authors <a name="authors"></a>
 
 👤 **Author1**
 
