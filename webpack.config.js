@@ -16,11 +16,12 @@ module.exports = {
     }),
     new CopyWebpackPlugin(
       {
-        'patterns': [
+        patterns: [
           {
-            from:'./src/images', to:'images'
+            from: './src/images', 
+            to: 'images',
           },
-        ]
+        ],
       },
     ),
   ],
