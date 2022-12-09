@@ -1,32 +1,43 @@
 // import _ from 'lodash';
 import './styles/main.scss';
+import { addTaskDom, addTaskStorage, removeCompletedTasks, updateTask } from './functionality.js'
 
-const tasks = [
-  {
-    descrition: 'Wash dishes',
-    completed: false,
-    index: 0,
-  },
-  {
-    descrition: 'Complete To do list project',
-    completed: false,
-    index: 1,
-  },
-];
+const createTasksList = () => {
+  let tasks = localStorage.getItem('tasks')
+  if (tasks != null) {
+    tasks = JSON.parse(tasks)
+    tasks.forEach((task) => {
+      addTaskDom(task.description, task.index, task.completed);
+    })
+  }
+}
 
-const addTask = (task) => {
-  const taskList = document.getElementById('tasks-list');
-  const newTask = document.createElement('li');
-  newTask.classList.add('task');
-  newTask.id = `task-${task.id}`;
-  newTask.innerHTML = `
-  <input type='checkbox' name='isTaskCompleted' id='check-${task.id}' value='${task.completed}'>
-  <p class='description'>${task.descrition}</p>
-  <img src='./images/dots.png' alt='three dots icon' class='three-dots'>
-  `;
-  taskList.insertBefore(newTask, taskList.lastChild);
-};
+createTasksList()
 
-tasks.forEach((task) => {
-  addTask(task);
+document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+  checkbox.addEventListener('change', (e) => {
+    const tasks = JSON.parse(localStorage.getItem('tasks'))
+    const index = parseInt(e.target.id.slice(-1))
+    tasks[index - 1].completed = e.target.checked
+    localStorage.setItem('tasks', JSON.stringify(tasks))
+  })
+});
+
+
+document.getElementById('new-task').addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    const newTask = addTaskStorage(e.target.value);
+    e.target.value = '';
+    addTaskDom(newTask.description, newTask.index);
+  }
+});
+
+document.querySelectorAll('input[name="task-text"]').forEach(textInput => {
+  textInput.addEventListener('change', (e) => {
+    updateTask(textInput)
+  })
+});
+
+document.getElementById('remove-completed').addEventListener('click', () => {
+  removeCompletedTasks()
 });
