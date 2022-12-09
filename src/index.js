@@ -1,11 +1,11 @@
 // import _ from 'lodash';
 import './styles/main.scss';
-import { 
+import {
   addTaskDom,
   addTaskStorage,
   removeCompletedTasks,
   updateTask,
-} 
+}
 from './functionality.js';
 
 const createTasksList = () => {
