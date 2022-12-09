@@ -33,10 +33,10 @@ export const removeCompletedTasks = () => {
   if (checkedBoxes.length > 0) {
     const tasksListEl = document.getElementById('tasks-list');
     let tasksList = JSON.parse(localStorage.getItem('tasks'));
-    checkedBoxes.forEach(checkbox => {
+    checkedBoxes.forEach((checkbox) => {
       tasksListEl.removeChild(checkbox.parentNode);
-      const index = parseInt(checkbox.id.slice(-1));
-      tasksList = tasksList.filter((task) => task.index != index);
+      const index = parseInt(checkbox.id.slice(-1), 10);
+      tasksList = tasksList.filter((task) => task.index !== index);
     });
     const newTasksList = tasksList.map((task, i) => {
       task.index = i + 1;
@@ -49,7 +49,7 @@ export const removeCompletedTasks = () => {
 export const updateTask = (input) => {
   const tasksList = JSON.parse(localStorage.getItem('tasks'));
   const taskId = input.parentNode.id;
-  const index = parseInt(taskId.slice(-1));
-  tasksList[index - 1].description = input.value  ;
+  const index = parseInt(taskId.slice(-1), 10);
+  tasksList[index - 1].description = input.value;
   localStorage.setItem('tasks', JSON.stringify(tasksList));
 };
