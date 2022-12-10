@@ -26,5 +26,5 @@ document.querySelectorAll('input[name="task-text"]').forEach((textInput) => {
 
 document.getElementById('remove-completed').addEventListener('click', () => {
   removeCompletedTasks();
-  createTasksList()
+  createTasksList();
 });

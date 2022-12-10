@@ -1,3 +1,5 @@
+/* eslint-disable no-use-before-define */
+
 const removeTask = (task) => {
   const tasksListEl = task.parentNode;
   let tasksList = JSON.parse(localStorage.getItem('tasks'));
@@ -10,7 +12,7 @@ const removeTask = (task) => {
   });
   localStorage.setItem('tasks', JSON.stringify(newTasksList));
   createTasksList();
-}
+};
 
 const focus = (task) => {
   task.classList.add('focus');
@@ -33,7 +35,7 @@ export const handleCheckbox = (checkbox) => {
   const index = parseInt(checkbox.id.slice(-1), 10);
   tasks[index - 1].completed = checkbox.checked;
   localStorage.setItem('tasks', JSON.stringify(tasks));
-}
+};
 
 export const addTaskDom = (description, index, completed) => {
   const taskList = document.getElementById('tasks-list');
@@ -82,7 +84,7 @@ export const addTaskStorage = (description) => {
 export const createTasksList = () => {
   let tasks = localStorage.getItem('tasks');
   const tasksList = document.getElementById('tasks-list');
-  [...tasksList.children].forEach(element => {
+  [...tasksList.children].forEach((element )=> {
     if (element.classList.contains('task')) {
       tasksList.removeChild(element);
     }

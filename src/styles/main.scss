@@ -75,6 +75,7 @@
   .dots-icon {
     cursor: grab;
     display: none;
+
     &.active {
       display: inline-block;
     }
@@ -83,6 +84,7 @@
   .delete-icon {
     cursor: pointer;
     display: none;
+    
     &.active {
       display: inline-block;
     }
