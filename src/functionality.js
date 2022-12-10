@@ -1,5 +1,7 @@
 /* eslint-disable no-use-before-define */
-import { updateTask, handleCheckbox, focus, blur } from "./updateTask";
+import { 
+  updateTask, handleCheckbox, focus, blur
+} from './updateTask.js';
 
 const removeTask = (task) => {
   const tasksListEl = task.parentNode;

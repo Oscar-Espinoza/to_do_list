@@ -3,7 +3,6 @@ import {
   addTaskDom,
   addTaskStorage,
   removeCompletedTasks,
-  updateTask,
   createTasksList,
 }
 from './functionality.js';
