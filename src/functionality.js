@@ -84,7 +84,7 @@ export const addTaskStorage = (description) => {
 export const createTasksList = () => {
   let tasks = localStorage.getItem('tasks');
   const tasksList = document.getElementById('tasks-list');
-  [...tasksList.children].forEach((element )=> {
+  [...tasksList.children].forEach((element ) => {
     if (element.classList.contains('task')) {
       tasksList.removeChild(element);
     }
