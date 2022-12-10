@@ -4,29 +4,11 @@ import {
   addTaskStorage,
   removeCompletedTasks,
   updateTask,
+  createTasksList,
 }
 from './functionality.js';
 
-const createTasksList = () => {
-  let tasks = localStorage.getItem('tasks');
-  if (tasks != null) {
-    tasks = JSON.parse(tasks);
-    tasks.forEach((task) => {
-      addTaskDom(task.description, task.index, task.completed);
-    });
-  }
-};
-
-createTasksList();
-
-document.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
-  checkbox.addEventListener('change', (e) => {
-    const tasks = JSON.parse(localStorage.getItem('tasks'));
-    const index = parseInt(e.target.id.slice(-1), 10);
-    tasks[index - 1].completed = e.target.checked;
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-  });
-});
+createTasksList(addTaskDom);
 
 document.getElementById('new-task').addEventListener('keydown', (e) => {
   if (e.key === 'Enter') {
@@ -44,4 +26,5 @@ document.querySelectorAll('input[name="task-text"]').forEach((textInput) => {
 
 document.getElementById('remove-completed').addEventListener('click', () => {
   removeCompletedTasks();
+  createTasksList()
 });

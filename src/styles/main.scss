@@ -59,13 +59,33 @@
 .task {
   align-items: center;
 
+  input {
+    background: none;
+  }
+
+  &.focus {
+    background: #fffeca;
+  }
+
   .description {
     flex-grow: 1;
     padding-left: 10px;
   }
 
-  .three-dots {
+  .dots-icon {
     cursor: grab;
+    display: none;
+    &.active {
+      display: inline-block;
+    }
+  }
+
+  .delete-icon {
+    cursor: pointer;
+    display: none;
+    &.active {
+      display: inline-block;
+    }
   }
 }
 
