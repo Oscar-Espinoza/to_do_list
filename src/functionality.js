@@ -115,10 +115,3 @@ export const removeCompletedTasks = () => {
   }
 };
 
-export const updateTask = (input) => {
-  const tasksList = JSON.parse(localStorage.getItem('tasks'));
-  const taskId = input.parentNode.id;
-  const index = parseInt(taskId.slice(-1), 10);
-  tasksList[index - 1].description = input.value;
-  localStorage.setItem('tasks', JSON.stringify(tasksList));
-};
