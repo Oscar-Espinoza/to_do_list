@@ -18,12 +18,6 @@ document.getElementById('new-task').addEventListener('keydown', (e) => {
   }
 });
 
-document.querySelectorAll('input[name="task-text"]').forEach((textInput) => {
-  textInput.addEventListener('change', () => {
-    updateTask(textInput);
-  });
-});
-
 document.getElementById('remove-completed').addEventListener('click', () => {
   removeCompletedTasks();
   createTasksList();
