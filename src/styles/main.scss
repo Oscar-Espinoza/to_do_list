@@ -1,0 +1,102 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.to-do-list {
+  display: flex;
+  min-width: 100vh;
+  min-height: 100vh;
+  background: #dfdfdf;
+  justify-content: center;
+  align-items: center;
+}
+
+#tasks-list {
+  width: 300px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  box-shadow: 5px 5px 24px #6e6e6e;
+
+  li {
+    padding: 8px;
+    border-bottom: #cacaca 1px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 18px;
+    }
+  }
+
+  .list-title {
+    p {
+      flex-grow: 1;
+    }
+
+    .reload-icon {
+      cursor: pointer;
+    }
+  }
+}
+
+.enter-icon {
+  cursor: pointer;
+}
+
+.text-input {
+  flex-grow: 1;
+  border: none;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.task {
+  align-items: center;
+
+  input {
+    background: none;
+  }
+
+  &.focus {
+    background: #fffeca;
+  }
+
+  .description {
+    flex-grow: 1;
+    padding-left: 10px;
+  }
+
+  .dots-icon {
+    cursor: grab;
+    display: none;
+
+    &.active {
+      display: inline-block;
+    }
+  }
+
+  .delete-icon {
+    cursor: pointer;
+    display: none;
+
+    &.active {
+      display: inline-block;
+    }
+  }
+}
+
+.clear {
+  background: #dfdfdf;
+  text-align: center;
+  color: #b4b4b4;
+
+  .clear-text {
+    cursor: pointer;
+  }
+}
