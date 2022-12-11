@@ -1,6 +1,6 @@
 /* eslint-disable no-use-before-define */
-import { 
-  updateTask, handleCheckbox, focus, blur
+import {
+  updateTask, handleCheckbox, focus, blur,
 } from './updateTask.js';
 
 const removeTask = (task) => {
