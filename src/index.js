@@ -19,5 +19,4 @@ document.getElementById('new-task').addEventListener('keydown', (e) => {
 
 document.getElementById('remove-completed').addEventListener('click', () => {
   removeCompletedTasks();
-  createTasksList();
 });

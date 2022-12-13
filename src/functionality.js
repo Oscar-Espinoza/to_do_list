@@ -14,7 +14,6 @@ const removeTask = (task) => {
     return task;
   });
   localStorage.setItem('tasks', JSON.stringify(newTasksList));
-  createTasksList();
 };
 
 export const addTaskDom = (description, index, completed) => {
@@ -43,6 +42,7 @@ export const addTaskDom = (description, index, completed) => {
   });
   newTask.querySelector('.delete-icon').addEventListener('mousedown', (e) => {
     removeTask(e.target.parentNode);
+    createTasksList();
   });
   taskList.insertBefore(newTask, taskList.lastChild);
 };
@@ -95,5 +95,6 @@ export const removeCompletedTasks = () => {
       return task;
     });
     localStorage.setItem('tasks', JSON.stringify(newTasksList));
+    createTasksList();
   }
 };
