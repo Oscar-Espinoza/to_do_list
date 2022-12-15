@@ -3,7 +3,7 @@ import {
   updateTask, handleCheckbox, focus, blur, removeTasks,
 } from './util.js';
 
-export const addTaskDom = (description, index, completed) => {+
+export const addTaskDom = (description, index, completed) => {
   console.log('not mock');
   const taskList = document.getElementById('tasks-list');
   const newTask = document.createElement('li');
