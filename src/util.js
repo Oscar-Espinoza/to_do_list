@@ -28,19 +28,3 @@ export const blur = (task) => {
   dotsIcon.classList.add('active');
   deleteIcon.classList.remove('active');
 };
-
-export const removeTasks = (tasks) => {
-  const tasksListEl = document.getElementById('tasks-list')
-  let tasksList = JSON.parse(localStorage.getItem('tasks'));
-  tasks.forEach(task => {
-    tasksListEl.removeChild(task);
-    const index = parseInt(task.id.slice(-1), 10);
-    tasksList = tasksList.filter((item) => item.index !== index);
-  });
-  
-  const newTasksList = tasksList.map((task, i) => {
-    task.index = i + 1;
-    return task;
-  });
-  localStorage.setItem('tasks', JSON.stringify(newTasksList));
-};

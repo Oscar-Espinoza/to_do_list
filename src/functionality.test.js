@@ -1,25 +1,29 @@
 import mountDOM from 'jsdom-mount';
-import { addTaskDom, addTaskStorage } from './functionality';
+import { addTaskDom, addTaskStorage, removeTasks } from './functionality';
+
+jest.mock('./functionality');
 
 describe('todo ADD and REMOVE functionalities', () => {
-  test('ADD function', () => {
-    mountDOM(`
+  mountDOM(`
         <ul id='list'>
           <li></li>
         </ul>
       `
     );
+  test('ADD function', () => {
     const description = 'some description';
     const index = 1;
     const completed = false;
-    const list = document.getElementById('list')
-    console.log(list.children.length);
-    addTaskDom(description, index, completed, list)
+    const list = document.getElementById('list');
+    addTaskDom(description, index, completed, list);
     addTaskStorage(description);
-    expect(list.children.length).toBe(2)
+    expect(list.children.length).toBe(2);
   });
 
   test('REMOVE function', () =>  {
-    
-  })
+    const task = document.getElementById('task-1');
+    removeTasks([task]);
+    const list = document.getElementById('list');
+    expect(list.children.length).toBe(1);
+  });
 });
