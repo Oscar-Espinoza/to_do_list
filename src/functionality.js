@@ -4,7 +4,6 @@ import {
 } from './util.js';
 
 export const addTaskDom = (description, index, completed) => {
-  console.log('not mock');
   const taskList = document.getElementById('tasks-list');
   const newTask = document.createElement('li');
   newTask.classList.add('task');
@@ -69,9 +68,9 @@ export const createTasksList = () => {
 };
 
 export const removeTasks = (tasks) => {
-  const tasksListEl = document.getElementById('tasks-list')
+  const tasksListEl = document.getElementById('tasks-list');
   let tasksList = JSON.parse(localStorage.getItem('tasks'));
-  tasks.forEach(task => {
+  tasks.forEach((task) => {
     tasksListEl.removeChild(task);
     const index = parseInt(task.id.slice(-1), 10);
     tasksList = tasksList.filter((item) => item.index !== index);
@@ -86,11 +85,11 @@ export const removeTasks = (tasks) => {
 
 export const removeCompletedTasks = () => {
   const checkedBoxes = document.querySelectorAll('input[type="checkbox"]:checked');
-  const tasksToDelete = []
+  const tasksToDelete = [];
   if (checkedBoxes.length > 0) {
     checkedBoxes.forEach((checkbox) => {
-      tasksToDelete.push(checkbox.parentNode)
+      tasksToDelete.push(checkbox.parentNode);
     });
-    removeTasks(tasksToDelete)
-  }  
+    removeTasks(tasksToDelete);
+  }
 };

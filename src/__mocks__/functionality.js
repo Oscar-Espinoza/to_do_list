@@ -10,10 +10,10 @@ export const addTaskDom = (description, index, completed, list) => {
     <img src='./images/delete.png' alt='delete icon' id='delete-${index}' class='delete-icon'>
   `;
   list.insertBefore(newTask, list.lastChild);
-  return newTask
+  return newTask;
 };
 
-const localStorageMock = (function () {
+const localStorageMock = (() => {
   let store = {};
 
   return {
@@ -56,15 +56,15 @@ export const addTaskStorage = (description) => {
   return taskList;
 };
 
-Object.defineProperty(window, "localStorage", { value: localStorageMock });
+Object.defineProperty(window, 'localStorage', { value: localStorageMock });
 
 export const removeTasks = (tasks) => {
-  const tasksListEl = document.getElementById('list')
+  const tasksListEl = document.getElementById('list');
   let tasksList = JSON.parse(localStorageMock.getItem('tasks'));
-  tasks.forEach(task => {
+  tasks.forEach((task) => {
     tasksListEl.removeChild(task);
     const index = parseInt(task.id.slice(-1), 10);
     tasksList = tasksList.filter((item) => item.index !== index);
-  })
-  localStorageMock.setItem('tasks', JSON.stringify(tasksList))
+  });
+  localStorageMock.setItem('tasks', JSON.stringify(tasksList));
 };
