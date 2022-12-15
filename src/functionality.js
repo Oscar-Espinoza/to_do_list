@@ -75,7 +75,6 @@ export const removeTasks = (tasks) => {
     const index = parseInt(task.id.slice(-1), 10);
     tasksList = tasksList.filter((item) => item.index !== index);
   });
-  
   const newTasksList = tasksList.map((task, i) => {
     task.index = i + 1;
     return task;
