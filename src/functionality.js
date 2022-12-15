@@ -1,20 +1,7 @@
 /* eslint-disable no-use-before-define */
 import {
-  updateTask, handleCheckbox, focus, blur,
-} from './updateTask.js';
-
-const removeTask = (task) => {
-  const tasksListEl = task.parentNode;
-  let tasksList = JSON.parse(localStorage.getItem('tasks'));
-  tasksListEl.removeChild(task);
-  const index = parseInt(task.id.slice(-1), 10);
-  tasksList = tasksList.filter((task) => task.index !== index);
-  const newTasksList = tasksList.map((task, i) => {
-    task.index = i + 1;
-    return task;
-  });
-  localStorage.setItem('tasks', JSON.stringify(newTasksList));
-};
+  updateTask, handleCheckbox, focus, blur, removeTask,
+} from './util.js';
 
 export const addTaskDom = (description, index, completed) => {
   const taskList = document.getElementById('tasks-list');
@@ -83,18 +70,8 @@ export const createTasksList = () => {
 export const removeCompletedTasks = () => {
   const checkedBoxes = document.querySelectorAll('input[type="checkbox"]:checked');
   if (checkedBoxes.length > 0) {
-    const tasksListEl = document.getElementById('tasks-list');
-    let tasksList = JSON.parse(localStorage.getItem('tasks'));
     checkedBoxes.forEach((checkbox) => {
-      tasksListEl.removeChild(checkbox.parentNode);
-      const index = parseInt(checkbox.id.slice(-1), 10);
-      tasksList = tasksList.filter((task) => task.index !== index);
+      removeTask(checkbox.parentNode)
     });
-    const newTasksList = tasksList.map((task, i) => {
-      task.index = i + 1;
-      return task;
-    });
-    localStorage.setItem('tasks', JSON.stringify(newTasksList));
-    createTasksList();
   }
 };
