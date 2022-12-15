@@ -1,18 +1,19 @@
 /* eslint-disable no-use-before-define */
 import {
-  updateTask, handleCheckbox, focus, blur, removeTask,
+  updateTask, handleCheckbox, focus, blur, removeTasks,
 } from './util.js';
 
-export const addTaskDom = (description, index, completed) => {
+export const addTaskDom = (description, index, completed) => {+
+  console.log('not mock');
   const taskList = document.getElementById('tasks-list');
   const newTask = document.createElement('li');
   newTask.classList.add('task');
   newTask.id = `task-${index}`;
   newTask.innerHTML = `
-  <input type='checkbox' name='task-completed' id='check-${index}' ${completed ? 'checked' : ''}>
-  <input type='text' name='task-text' class='description text-input' value=${description}>
-  <img src='./images/dots.png' alt='three dots icon' id='move-${index}' class='dots-icon active' draggable='true'>
-  <img src='./images/delete.png' alt='delete icon' id='delete-${index}' class='delete-icon'>
+    <input type='checkbox' name='task-completed' id='check-${index}' ${completed ? 'checked' : ''}>
+    <input type='text' name='task-text' class='description text-input' value=${description}>
+    <img src='./images/dots.png' alt='three dots icon' id='move-${index}' class='dots-icon active' draggable='true'>
+    <img src='./images/delete.png' alt='delete icon' id='delete-${index}' class='delete-icon'>
   `;
   newTask.querySelector('input[type=checkbox]').addEventListener('change', (e) => {
     const checkbox = e.target;
@@ -28,7 +29,7 @@ export const addTaskDom = (description, index, completed) => {
     blur(e.target.parentNode);
   });
   newTask.querySelector('.delete-icon').addEventListener('mousedown', (e) => {
-    removeTask(e.target.parentNode);
+    removeTasks([e.target.parentNode]);
     createTasksList();
   });
   taskList.insertBefore(newTask, taskList.lastChild);
@@ -69,9 +70,11 @@ export const createTasksList = () => {
 
 export const removeCompletedTasks = () => {
   const checkedBoxes = document.querySelectorAll('input[type="checkbox"]:checked');
+  const tasksToDelete = []
   if (checkedBoxes.length > 0) {
     checkedBoxes.forEach((checkbox) => {
-      removeTask(checkbox.parentNode)
+      tasksToDelete.push(checkbox.parentNode)
     });
-  }
+    removeTasks(tasksToDelete)
+  }  
 };

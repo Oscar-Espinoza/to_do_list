@@ -29,12 +29,15 @@ export const blur = (task) => {
   deleteIcon.classList.remove('active');
 };
 
-export const removeTask = (task) => {
-  const tasksListEl = task.parentNode;
+export const removeTasks = (tasks) => {
+  const tasksListEl = document.getElementById('tasks-list')
   let tasksList = JSON.parse(localStorage.getItem('tasks'));
-  tasksListEl.removeChild(task);
-  const index = parseInt(task.id.slice(-1), 10);
-  tasksList = tasksList.filter((task) => task.index !== index);
+  tasks.forEach(task => {
+    tasksListEl.removeChild(task);
+    const index = parseInt(task.id.slice(-1), 10);
+    tasksList = tasksList.filter((item) => item.index !== index);
+  });
+  
   const newTasksList = tasksList.map((task, i) => {
     task.index = i + 1;
     return task;

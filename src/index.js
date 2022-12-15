@@ -7,7 +7,7 @@ import {
 }
 from './functionality.js';
 
-createTasksList(addTaskDom);
+createTasksList();
 
 document.getElementById('new-task').addEventListener('keydown', (e) => {
   if (e.key === 'Enter') {
