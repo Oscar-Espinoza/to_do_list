@@ -1,8 +1,7 @@
 jest.mock('./functionality')
 
 import mountDOM from 'jsdom-mount';
-import { addTaskDom } from './functionality';
-import { removeTasks } from './util';
+import { addTaskDom, addTaskStorage } from './functionality';
 
 describe('todo ADD and REMOVE functionalities', () => {
   test('ADD function', () => {
@@ -12,7 +11,12 @@ describe('todo ADD and REMOVE functionalities', () => {
     const completed = false;
     const list = document.getElementById('list')
     console.log(list.children.length);
-    addTaskDom(description, index, completed, list)    
+    addTaskDom(description, index, completed, list)
+    addTaskStorage(description);
     expect(list.children.length).toBe(2)
   });
+
+  test('REMOVE function', () =>  {
+    
+  })
 });
