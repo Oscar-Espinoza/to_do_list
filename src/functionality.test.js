@@ -7,7 +7,7 @@ describe('todo ADD and REMOVE functionalities', () => {
   mountDOM(
     `<ul id='list'>
       <li></li>
-    </ul>`
+    </ul>`,
   );
   test('ADD function', () => {
     const description = 'some description';
