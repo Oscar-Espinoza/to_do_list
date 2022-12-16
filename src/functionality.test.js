@@ -1,5 +1,5 @@
 import mountDOM from 'jsdom-mount';
-import { addTaskDom, addTaskStorage, removeTasks, updateTask, handleCheckbox } from './functionality.js';
+import { addTaskDom, addTaskStorage, removeTasks, updateTask, handleCheckbox, removeCompletedTasks } from './functionality.js';
 
 jest.mock('./functionality');
 
@@ -49,4 +49,10 @@ describe('handleCheckbox and updateTask functions', () => {
     expect(checkboxValue).toBe(true);
   })
 
+  test('check Clear all completed', () => {
+    const checkbox = document.getElementById('check-1');
+    removeCompletedTasks([checkbox]);
+    let checkboxArray = document.querySelectorAll('input[type="checkbox"]:checked');
+    expect(checkboxArray).toHaveLength(0);
+  })
 });
