@@ -1,6 +1,6 @@
 /* eslint-disable no-use-before-define */
 import {
-  updateTask, handleCheckbox, focus, blur,
+  focus, blur,
 } from './util.js';
 
 export const addTaskDom = (description, index, completed) => {

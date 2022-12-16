@@ -75,7 +75,7 @@ export const updateTask = (textInput) => {
   const index = parseInt(taskId.slice(-1), 10);
   tasksList[index - 1].description = textInput.value;
   localStorageMock.setItem('tasks', JSON.stringify(tasksList));
-  return textInput.value
+  return textInput.value;
 };
 
 export const handleCheckbox = (checkbox) => {
