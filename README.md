@@ -56,10 +56,6 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- LIVE DEMO -->
-
-<!-- ## 🚀 Live Demo <a name="live-demo"></a>
-
 > Add a link to your deployed project.
 
 - [Live Demo Link](https://yourdeployedapplicationlink.com)
@@ -105,6 +101,10 @@ To run the project, execute the following command:
 
 - GitHub: [@Oscar-Espinoza](https://github.com/Oscar-Espinoza)
 - Linkedin: [@Oscar Espinoza](https://www.linkedin.com/in/oscar-espinoza-68a398a8)
+
+👤 **Author2**
+
+- GitHub: [@PrangonGhose](https://github.com/PrangonGhose)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
