@@ -3,6 +3,14 @@ import {
   focus, blur,
 } from './util.js';
 
+export const updateTask = (textInput) => {
+  const tasksList = JSON.parse(localStorage.getItem('tasks'));
+  const taskId = textInput.parentNode.id;
+  const index = parseInt(taskId.slice(-1), 10);
+  tasksList[index - 1].description = textInput.value;
+  localStorage.setItem('tasks', JSON.stringify(tasksList));
+};
+
 export const addTaskDom = (description, index, completed) => {
   const taskList = document.getElementById('tasks-list');
   const newTask = document.createElement('li');
