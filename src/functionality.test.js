@@ -42,5 +42,11 @@ describe('handleCheckbox and updateTask functions', () => {
     expect(initialDescription).not.toBe(newText)
   })
 
+  test('handle checkbox', () => {
+    const checkbox = document.getElementById('check-1');
+    checkbox.click();
+    const checkboxValue = handleCheckbox(checkbox);
+    expect(checkboxValue).toBe(true);
+  })
 
 });

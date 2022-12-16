@@ -83,4 +83,5 @@ export const handleCheckbox = (checkbox) => {
   const index = parseInt(checkbox.id.slice(-1), 10);
   tasks[index - 1].completed = checkbox.checked;
   localStorageMock.setItem('tasks', JSON.stringify(tasks));
+  return tasks[index - 1].completed;
 };
