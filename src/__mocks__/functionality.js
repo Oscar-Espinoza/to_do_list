@@ -87,7 +87,6 @@ export const handleCheckbox = (checkbox) => {
 };
 
 export const removeCompletedTasks = (checkedBoxes) => {
-  // const checkedBoxes = document.querySelectorAll('input[type="checkbox"]:checked');
   const tasksToDelete = [];
   if (checkedBoxes.length > 0) {
     checkedBoxes.forEach((checkbox) => {

@@ -35,24 +35,23 @@ describe('handleCheckbox and updateTask functions', () => {
     const list = document.getElementById('list');
     addTaskDom(initialDescription, index, completed, list);
     addTaskStorage(initialDescription);
-    const textInput = document.getElementById('text-1')
-    textInput.value = 'something different'
-    const newText = updateTask(textInput)
-    console.log(newText);
-    expect(initialDescription).not.toBe(newText)
-  })
+    const textInput = document.getElementById('text-1');
+    textInput.value = 'something different';
+    const newText = updateTask(textInput);
+    expect(initialDescription).not.toBe(newText);
+  });
 
   test('handle checkbox', () => {
     const checkbox = document.getElementById('check-1');
     checkbox.click();
     const checkboxValue = handleCheckbox(checkbox);
     expect(checkboxValue).toBe(true);
-  })
+  });
 
   test('check Clear all completed', () => {
     const checkbox = document.getElementById('check-1');
     removeCompletedTasks([checkbox]);
     let checkboxArray = document.querySelectorAll('input[type="checkbox"]:checked');
     expect(checkboxArray).toHaveLength(0);
-  })
+  });
 });
