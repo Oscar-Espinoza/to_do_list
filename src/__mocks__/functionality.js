@@ -77,3 +77,10 @@ export const updateTask = (textInput) => {
   localStorageMock.setItem('tasks', JSON.stringify(tasksList));
   return textInput.value
 };
+
+export const handleCheckbox = (checkbox) => {
+  const tasks = JSON.parse(localStorageMock.getItem('tasks'));
+  const index = parseInt(checkbox.id.slice(-1), 10);
+  tasks[index - 1].completed = checkbox.checked;
+  localStorageMock.setItem('tasks', JSON.stringify(tasks));
+};

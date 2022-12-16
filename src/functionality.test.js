@@ -1,5 +1,5 @@
 import mountDOM from 'jsdom-mount';
-import { addTaskDom, addTaskStorage, removeTasks, updateTask } from './functionality.js';
+import { addTaskDom, addTaskStorage, removeTasks, updateTask, handleCheckbox } from './functionality.js';
 
 jest.mock('./functionality');
 
@@ -41,4 +41,6 @@ describe('handleCheckbox and updateTask functions', () => {
     console.log(newText);
     expect(initialDescription).not.toBe(newText)
   })
+
+
 });

@@ -92,3 +92,10 @@ export const removeCompletedTasks = () => {
     removeTasks(tasksToDelete);
   }
 };
+
+export const handleCheckbox = (checkbox) => {
+  const tasks = JSON.parse(localStorage.getItem('tasks'));
+  const index = parseInt(checkbox.id.slice(-1), 10);
+  tasks[index - 1].completed = checkbox.checked;
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+};
