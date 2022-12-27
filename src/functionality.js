@@ -1,7 +1,15 @@
 /* eslint-disable no-use-before-define */
 import {
-  updateTask, handleCheckbox, focus, blur, removeTask,
+  focus, blur,
 } from './util.js';
+
+export const updateTask = (textInput) => {
+  const tasksList = JSON.parse(localStorage.getItem('tasks'));
+  const taskId = textInput.parentNode.id;
+  const index = parseInt(taskId.slice(-1), 10);
+  tasksList[index - 1].description = textInput.value;
+  localStorage.setItem('tasks', JSON.stringify(tasksList));
+};
 
 export const addTaskDom = (description, index, completed) => {
   const taskList = document.getElementById('tasks-list');
@@ -9,10 +17,10 @@ export const addTaskDom = (description, index, completed) => {
   newTask.classList.add('task');
   newTask.id = `task-${index}`;
   newTask.innerHTML = `
-  <input type='checkbox' name='task-completed' id='check-${index}' ${completed ? 'checked' : ''}>
-  <input type='text' name='task-text' class='description text-input' value=${description}>
-  <img src='./images/dots.png' alt='three dots icon' id='move-${index}' class='dots-icon active' draggable='true'>
-  <img src='./images/delete.png' alt='delete icon' id='delete-${index}' class='delete-icon'>
+    <input type='checkbox' name='task-completed' id='check-${index}' ${completed ? 'checked' : ''}>
+    <input type='text' name='task-text' class='description text-input' value=${description}>
+    <img src='./images/dots.png' alt='three dots icon' id='move-${index}' class='dots-icon active' draggable='true'>
+    <img src='./images/delete.png' alt='delete icon' id='delete-${index}' class='delete-icon'>
   `;
   newTask.querySelector('input[type=checkbox]').addEventListener('change', (e) => {
     const checkbox = e.target;
@@ -28,7 +36,7 @@ export const addTaskDom = (description, index, completed) => {
     blur(e.target.parentNode);
   });
   newTask.querySelector('.delete-icon').addEventListener('mousedown', (e) => {
-    removeTask(e.target.parentNode);
+    removeTasks([e.target.parentNode]);
     createTasksList();
   });
   taskList.insertBefore(newTask, taskList.lastChild);
@@ -67,11 +75,35 @@ export const createTasksList = () => {
   }
 };
 
+export const removeTasks = (tasks) => {
+  const tasksListEl = document.getElementById('tasks-list');
+  let tasksList = JSON.parse(localStorage.getItem('tasks'));
+  tasks.forEach((task) => {
+    tasksListEl.removeChild(task);
+    const index = parseInt(task.id.slice(-1), 10);
+    tasksList = tasksList.filter((item) => item.index !== index);
+  });
+  const newTasksList = tasksList.map((task, i) => {
+    task.index = i + 1;
+    return task;
+  });
+  localStorage.setItem('tasks', JSON.stringify(newTasksList));
+};
+
 export const removeCompletedTasks = () => {
   const checkedBoxes = document.querySelectorAll('input[type="checkbox"]:checked');
+  const tasksToDelete = [];
   if (checkedBoxes.length > 0) {
     checkedBoxes.forEach((checkbox) => {
-      removeTask(checkbox.parentNode)
+      tasksToDelete.push(checkbox.parentNode);
     });
+    removeTasks(tasksToDelete);
   }
+};
+
+export const handleCheckbox = (checkbox) => {
+  const tasks = JSON.parse(localStorage.getItem('tasks'));
+  const index = parseInt(checkbox.id.slice(-1), 10);
+  tasks[index - 1].completed = checkbox.checked;
+  localStorage.setItem('tasks', JSON.stringify(tasks));
 };
