@@ -7,7 +7,9 @@ const arrayUpdate = (draggedIndex, dropIndex) => {
       
       if (i !== dropIndex) {
         tasksList[i] = tasksList[i + 1];
+        tasksList[i].index = i + 1
       } else {
+        temp.index = i + 1
         tasksList[i] = temp;
       }    
     }
