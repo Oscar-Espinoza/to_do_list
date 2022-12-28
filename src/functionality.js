@@ -3,6 +3,8 @@ import {
   focus, blur,
 } from './util.js';
 
+import { drop } from './dragAndDrop.js';
+
 export const updateTask = (textInput) => {
   const tasksList = JSON.parse(localStorage.getItem('tasks'));
   const taskId = textInput.parentNode.id;
@@ -60,7 +62,7 @@ export const addTaskDom = (description, index, completed) => {
     e.preventDefault();
   });
   newTask.addEventListener('drop', (e) => {
-    console.log(e.target);
+    drop(e.target, e.clientY);
   });
   taskList.insertBefore(newTask, taskList.lastChild);
 };

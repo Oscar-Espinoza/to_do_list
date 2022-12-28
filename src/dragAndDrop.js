@@ -1,13 +1,15 @@
-export const drop = (dragged, dropOn) => {
-  // const tasksList = JSON.parse(localStorage.getItem('tasks'));
-  // const dropOnIndex = parseInt(dropOn.id.slice(-1)) - 1;
-  // const draggedIndex = parseInt(dragged.id.slice(-1)) - 1; 
-  // const temp = tasksList[dropOnIndex];
-  // tasksList[dropOnIndex].description = tasksList[draggedIndex].description;
-  // tasksList[dropOnIndex].completed = tasksList[draggedIndex].completed;
-  // tasksList[draggedIndex].description = temp.description;
-  // tasksList[draggedIndex].completed = temp.completed;
-  // localStorage.setItem('tasks', JSON.stringify(tasksList))
-  // const tasksListEl = document.getElementById('tasks-list')
-  // tasksListEl.insertBefore(tasksListEl.children[4], tasksListEl.children[2])
-}
+const arrayUpdate = (draggedIndex, dropIndex) => {
+  const tasksList = JSON.parse(localStorage.getItem('tasks'))
+};
+
+export const drop = (task, mouseYPosition) => {
+  const taskList = task.parentNode;
+  const taskProperties = task.getBoundingClientRect();
+  const draggedTask = document.querySelector('.dragging');
+
+  if (mouseYPosition <= (taskProperties.y + (taskProperties.height/2))) {
+    taskList.insertBefore(draggedTask, task);
+  } else {
+    taskList.insertBefore(draggedTask, task.nextSibling);
+  }
+};
