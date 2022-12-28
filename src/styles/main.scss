@@ -12,7 +12,7 @@
   align-items: center;
 }
 
-#tasks-list {
+.tasks-list {
   width: 300px;
   background: #fff;
   display: flex;
@@ -94,7 +94,11 @@
 }
 
 .dragging {
-  opacity: 1;
+  display: none;
+}
+
+.waitingDrop {
+  pointer-events: none;
 }
 
 .clear {

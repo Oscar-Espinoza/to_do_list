@@ -41,13 +41,26 @@ export const addTaskDom = (description, index, completed) => {
     createTasksList();
   });
   newTask.addEventListener('dragstart', (e) => {
-    newTask.classList.add('dragging')
+    newTask.classList.add('dragging');
+    document.querySelectorAll('.task').forEach(task => {
+      [...task.children].forEach(children => {
+        children.classList.add('waitingDrop')
+      });
+    });
   });
   newTask.addEventListener('dragend', (e) => {
-    //newTask.classList.remove('dragging')
+    newTask.classList.remove('dragging');
+    document.querySelectorAll('.task').forEach(task => {
+      [...task.children].forEach(children => {
+        children.classList.remove('waitingDrop')
+      });
+    });
   });
   newTask.addEventListener('dragover', (e) => {
-    //console.log(e.target);
+    e.preventDefault();
+  });
+  newTask.addEventListener('drop', (e) => {
+    console.log(e.target);
   });
   taskList.insertBefore(newTask, taskList.lastChild);
 };

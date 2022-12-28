@@ -7,8 +7,6 @@ import {
 }
 from './functionality.js';
 
-import { drop } from './dragAndDrop.js'
-
 createTasksList();
 
 document.getElementById('new-task').addEventListener('keydown', (e) => {
