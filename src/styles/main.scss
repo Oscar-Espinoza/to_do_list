@@ -1,3 +1,4 @@
+/* stylelint-disable */
 * {
   padding: 0;
   margin: 0;
@@ -12,13 +13,14 @@
   align-items: center;
 }
 
-#tasks-list {
+.tasks-list {
   width: 300px;
   background: #fff;
   display: flex;
   flex-direction: column;
   list-style: none;
   box-shadow: 5px 5px 24px #6e6e6e;
+  background: #c2c2c2;
 
   li {
     padding: 8px;
@@ -26,6 +28,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background: #fff;
 
     img {
       width: 18px;
@@ -89,6 +92,14 @@
       display: inline-block;
     }
   }
+}
+
+.dragging {
+  display: none;
+}
+
+.waitingDrop {
+  pointer-events: none;
 }
 
 .clear {

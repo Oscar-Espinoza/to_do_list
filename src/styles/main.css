@@ -1,0 +1,95 @@
+/* stylelint-disable */
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.to-do-list {
+  display: flex;
+  min-width: 100vh;
+  min-height: 100vh;
+  background: #dfdfdf;
+  justify-content: center;
+  align-items: center;
+}
+
+#tasks-list {
+  width: 300px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  box-shadow: 5px 5px 24px #6e6e6e;
+  background: #c2c2c2;
+}
+#tasks-list li {
+  padding: 8px;
+  border-bottom: #cacaca 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+}
+#tasks-list li img {
+  width: 18px;
+}
+#tasks-list .list-title p {
+  flex-grow: 1;
+}
+#tasks-list .list-title .reload-icon {
+  cursor: pointer;
+}
+
+.enter-icon {
+  cursor: pointer;
+}
+
+.text-input {
+  flex-grow: 1;
+  border: none;
+}
+.text-input:focus {
+  outline: none;
+}
+
+.task {
+  align-items: center;
+}
+.task input {
+  background: none;
+}
+.task.focus {
+  background: #fffeca;
+}
+.task .description {
+  flex-grow: 1;
+  padding-left: 10px;
+}
+.task .dots-icon {
+  cursor: -webkit-grab;
+  cursor: grab;
+  display: none;
+}
+.task .dots-icon.active {
+  display: inline-block;
+}
+.task .delete-icon {
+  cursor: pointer;
+  display: none;
+}
+.task .delete-icon.active {
+  display: inline-block;
+}
+
+.dragging {
+  background: #000;
+}
+
+.clear {
+  background: #dfdfdf;
+  text-align: center;
+  color: #b4b4b4;
+}
+.clear .clear-text {
+  cursor: pointer;
+}/*# sourceMappingURL=main.css.map */
