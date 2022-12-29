@@ -3,7 +3,6 @@ const arrayUpdate = (draggedIndex, dropIndex) => {
   const tasksList = JSON.parse(localStorage.getItem('tasks'));
   const temp = tasksList[draggedIndex];
   if (draggedIndex < dropIndex) {
-
     for (let i = draggedIndex; i <= dropIndex; i += 1) {
       if (i !== dropIndex) {
         tasksList[i] = tasksList[i + 1];
@@ -11,10 +10,10 @@ const arrayUpdate = (draggedIndex, dropIndex) => {
       } else {
         temp.index = i + 1;
         tasksList[i] = temp;
-      } 
+      }
     }
   } else if (draggedIndex > dropIndex) {
-    for (let i = draggedIndex; i >= dropIndex; i -= 1) {   
+    for (let i = draggedIndex; i >= dropIndex; i -= 1) {
       if (i !== dropIndex) {
         tasksList[i] = tasksList[i - 1];
         tasksList[i].index = i + 1;
@@ -25,7 +24,6 @@ const arrayUpdate = (draggedIndex, dropIndex) => {
     }
   }
   localStorage.setItem('tasks', JSON.stringify(tasksList));
-
 };
 
 export const drop = (task, mouseYPosition) => {

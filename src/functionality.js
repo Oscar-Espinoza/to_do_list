@@ -46,7 +46,7 @@ export const addTaskDom = (description, index, completed) => {
     newTask.classList.add('dragging');
     document.querySelectorAll('.task').forEach((task) => {
       [...task.children].forEach((children) => {
-        children.classList.add('waitingDrop')
+        children.classList.add('waitingDrop');
       });
     });
   });
