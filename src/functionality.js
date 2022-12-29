@@ -63,6 +63,7 @@ export const addTaskDom = (description, index, completed) => {
   });
   newTask.addEventListener('drop', (e) => {
     drop(e.target, e.clientY);
+    createTasksList()
   });
   taskList.insertBefore(newTask, taskList.lastChild);
 };
